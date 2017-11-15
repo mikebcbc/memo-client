@@ -1,6 +1,6 @@
-.stats {
+.stats .inner-wrapper {
   display: flex;
   flex-direction: row; }
-  .stats > div {
+  .stats .inner-wrapper > div {
     position: relative;
     width: 33%; }

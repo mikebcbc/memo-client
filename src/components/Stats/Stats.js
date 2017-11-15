@@ -9,11 +9,13 @@ import './Stats.css';
 export default class Stats extends Component {
   render() {
     return (
-      <div className="stats">
-        <TopicStats />
-        <TimeStats />
-        <SiteStats />
-      </div>
+      <section className="stats">
+      	<div className="inner-wrapper">
+        	<TopicStats />
+        	<TimeStats />
+        	<SiteStats />
+        </div>
+      </section>
     )
   }
 }

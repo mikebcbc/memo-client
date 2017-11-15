@@ -1,0 +1,5 @@
+.manual-entry .inner-wrapper {
+  display: flex;
+  flex-direction: row; }
+  .manual-entry .inner-wrapper > * {
+    width: 50%; }
