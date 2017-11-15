@@ -7,7 +7,6 @@ export default class Dashboard extends Component {
     return (
       <div className="dashboard">
         <Stats />
-        <span>afaf</span>
       </div>
     )
   }

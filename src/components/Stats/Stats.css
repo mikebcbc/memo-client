@@ -1,0 +1,6 @@
+.stats {
+  display: flex;
+  flex-direction: row; }
+  .stats > div {
+    position: relative;
+    width: 33%; }
