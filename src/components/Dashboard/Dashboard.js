@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Stats from '../Stats/Stats';
-import RecContent from '../RecContent/RecContent';
+import Content from '../Content/Content';
 import ManualEntry from '../ManualEntry/ManualEntry';
 
 export default class Dashboard extends Component {
@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     return (
       <div className="dashboard">
         <Stats />
-        <RecContent />
+        <Content />
         <ManualEntry />
       </div>
     )
