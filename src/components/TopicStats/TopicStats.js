@@ -11,7 +11,11 @@ export class TopicStats extends Component {
 				return rArr;
 			}),
 			datasets: [{
-				data: [2, 18, 9],
+				data: this.props.topics.map((topic) => {
+				let rArr = [];
+				rArr.push(topic.range);
+				return rArr;
+			}),
 				backgroundColor: [
 				'#FF6384',
 				'#36A2EB',
