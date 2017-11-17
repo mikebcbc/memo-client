@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import {Doughnut} from 'react-chartjs-2';
 
-const data = {
-	labels: [
-		'NodeJS',
-		'ReactJS',
-		'Design'
-	],
-	datasets: [{
-		data: [2, 18, 9],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
-	}]
-};
-
-export default class TopicStats extends Component {
+export class TopicStats extends Component {
   render() {
+		const data = {
+			labels: this.props.topics.map((topic) => {
+				let rArr = [];
+				rArr.push(topic.label);
+				return rArr;
+			}),
+			datasets: [{
+				data: [2, 18, 9],
+				backgroundColor: [
+				'#FF6384',
+				'#36A2EB',
+				'#FFCE56'
+				],
+				hoverBackgroundColor: [
+				'#FF6384',
+				'#36A2EB',
+				'#FFCE56'
+				]
+			}]
+		};
+
     return (
       <div className="topicstats">
         <Doughnut data={data} options={{maintainAspectRatio: true}} />
@@ -31,3 +32,9 @@ export default class TopicStats extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  topics: state.memo.topics
+})
+
+export default connect(mapStateToProps)(TopicStats);
