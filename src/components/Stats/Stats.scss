@@ -1,0 +1,17 @@
+.stats {
+	.inner-wrapper {
+		display: flex;
+		flex-direction: row;
+		> div {
+			position: relative;
+			width: 33%;
+			@media (max-width: 769px) {
+				margin-top: 25px;
+				width: 100%;
+			}
+		}
+		@media (max-width: 769px) {
+			flex-direction: column;
+		}
+	}
+}
