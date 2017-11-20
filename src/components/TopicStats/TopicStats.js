@@ -5,17 +5,9 @@ import {Doughnut} from 'react-chartjs-2';
 export class TopicStats extends Component {
   render() {
 		const data = {
-			labels: this.props.topics.map((topic) => {
-				let rArr = [];
-				rArr.push(topic.label);
-				return rArr;
-			}),
+			labels: this.props.topics.map((topic) => topic.label),
 			datasets: [{
-				data: this.props.topics.map((topic) => {
-				let rArr = [];
-				rArr.push(topic.range);
-				return rArr;
-			}),
+				data: this.props.topics.map((topic) => topic.range),
 				backgroundColor: [
 				'#FF6384',
 				'#36A2EB',

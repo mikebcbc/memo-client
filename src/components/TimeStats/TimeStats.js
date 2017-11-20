@@ -5,11 +5,7 @@ import {Line} from 'react-chartjs-2';
 export class TimeStats extends Component {
   render() {
     const data = {
-      labels: this.props.timeSpent.map((time) => {
-        let rArr = [];
-        rArr.push(time.day);
-        return rArr;
-      }),
+      labels: this.props.timeSpent.map((time) => time.day),
       datasets: [
         {
           label: 'Time Spent (minutes)',
@@ -30,11 +26,7 @@ export class TimeStats extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.props.timeSpent.map((time) => {
-            let rArr = [];
-            rArr.push(time.time);
-            return rArr;
-          })
+          data: this.props.timeSpent.map((time) => time.time)
         }
       ]
     };

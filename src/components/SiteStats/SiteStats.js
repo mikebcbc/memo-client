@@ -5,17 +5,9 @@ import {connect} from 'react-redux';
 export class SiteStats extends Component {
   render() {
   	const data = {
-			labels: this.props.sites.map((site) => {
-				let rArr = [];
-				rArr.push(site.label);
-				return rArr;
-			}),
+			labels: this.props.sites.map((site) => site.label),
 			datasets: [{
-				data: this.props.sites.map((site) => {
-					let rArr = [];
-					rArr.push(site.range);
-					return rArr;
-				}),
+				data: this.props.sites.map((site) => site.range),
 				backgroundColor: [
 				'#FF6384',
 				'#36A2EB',

@@ -23,7 +23,7 @@ const initialState = {
 		label: 'StackOverflow',
 		range: 4
 	}],
-	timeSpent: [{
+	timeSpent: [{ 
 		day: 'Monday',
 		time: 60 // should I store time like this?
 	},
@@ -38,6 +38,14 @@ const initialState = {
 	{
 		day: 'Thursday',
 		time: 14
+	}],
+	content: [{
+		topic: 'ReactJS',
+		link: 'http://www.google.com'
+	},
+	{
+		topic: 'NodeJS',
+		link: 'http://www.npmjs.com'
 	}]
 }
 

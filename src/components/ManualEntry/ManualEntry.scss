@@ -4,6 +4,12 @@
 		flex-direction: row;
 		> * {
 			width: 50%;
+			@media (max-width: 769px) {
+				width: 100%;
+			}
+		}
+		@media (max-width: 769px) {
+			flex-direction: column;
 		}
 	}
 }

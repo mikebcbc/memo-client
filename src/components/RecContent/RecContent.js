@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import './RecContent.css';
 
-export default class RecContent extends Component {
+export class RecContent extends Component {
   render() {
+  	const listContent = this.props.content.map((item, index) => <li key={index}>{item.topic} - {item.link}</li>);
     return (
 	    <ul className="recommended-content">
-				<li>Topic - Website Link/Button</li>
-				<li>Topic - Website Link/Button</li>
-				<li>Topic - Website Link/Button</li>
-				<li>Topic - Website Link/Button</li>
-				<li>Topic - Website Link/Button</li>
-				<li>Topic - Website Link/Button</li>
+	    	{listContent}
 			</ul>
     )
   }
 }
+
+const mapStateToProps = state => ({
+	content: state.memo.content
+});
+
+export default connect(mapStateToProps)(RecContent);

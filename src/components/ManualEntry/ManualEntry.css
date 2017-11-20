@@ -3,3 +3,9 @@
   flex-direction: row; }
   .manual-entry .inner-wrapper > * {
     width: 50%; }
+    @media (max-width: 769px) {
+      .manual-entry .inner-wrapper > * {
+        width: 100%; } }
+  @media (max-width: 769px) {
+    .manual-entry .inner-wrapper {
+      flex-direction: column; } }

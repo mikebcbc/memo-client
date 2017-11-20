@@ -9,11 +9,11 @@ export default class ManualEntry extends Component {
     return (
       <section className="manual-entry">
         <div className="inner-wrapper">
-          <div class="info">
+          <div className="info">
   				  <h3>Submit a manual entry</h3>
-  				  <p>Not using our handy <a href>chrome extension</a>? Not a problem. Feel free to manually submit an entry here to incorporate it into your statistics!</p>
+  				  <p>Not using our handy <a>chrome extension</a>? Not a problem. Feel free to manually submit an entry here to incorporate it into your statistics!</p>
 			    </div>
-			    <div class="manual-form">
+			    <div className="manual-form">
 				    <ManualEntryForm />
 			    </div>
         </div>
