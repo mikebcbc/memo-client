@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form";
 
 import Input from "../Input/Input";
-import { required, nonEmpty, matches, isTrimmed } from "../validators.js";
+import { required, nonEmpty, isTrimmed } from "../validators.js";
 
 import './ManualEntryForm.css';
 
