@@ -1,0 +1,24 @@
+.top-section {
+	position: absolute;
+	left: 0;
+	right: 0;
+	.logo {
+		font-family: 'Habibi', serif;
+		font-size: 68px;
+		letter-spacing: 26px;
+		font-weight: 500;
+		text-transform: uppercase;
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	}
+}
+
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('/hero-section.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 659px;
+  width: 100%;
+}
