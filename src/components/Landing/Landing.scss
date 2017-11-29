@@ -70,3 +70,48 @@
   	padding: 20px 20px 60px 20px;
   }
 }
+
+.how-it-works {
+	.inner-wrapper {
+		.how-title {
+			text-align: center;
+			&:after {
+				content: '';
+		    width: 90px;
+		    height: 2px;
+		    background-color: #000;
+		    position: absolute;
+		    display: block;
+		    left: calc(50% - 45px);
+		    bottom: 135px;
+			}
+		}
+		.hiw-row {
+			display: flex;
+			flex-direction: row;
+			margin-top: 60px;
+			.hiw-box {
+				line-height: 1.5;
+		    letter-spacing: 0.2px;
+		    text-align: center;
+		    color: #252525;
+		    flex: 1;
+		    padding-left: 30px;
+		    padding-right: 30px;
+				.number-bubble {
+			    background-color: #000;
+			    border-radius: 50%;
+			    height: 45px;
+			    width: 45px;
+			    color: #fff;
+			    line-height: 45px;
+			    text-align: center;
+			    font-size: 28px;
+			    font-family: "Playfair", "PlayfairDisplay", serif;
+			    display: inline-block;
+			    margin-bottom: 11px;
+				}
+			}
+		}
+	}
+}

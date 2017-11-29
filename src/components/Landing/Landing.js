@@ -5,9 +5,30 @@ import './Landing.css';
 export default class Landing extends Component {
   render() {
     return (
-      <section className="hero-section">
-        <h2>A free, intuitive way to manage your self-learning.</h2>
-      </section>
+    	<div className="landing">
+      	<section className="hero-section">
+        	<h2>A free, intuitive way to manage your self-learning.</h2>
+	      </section>
+	      <section className="how-it-works">
+	      	<div className="inner-wrapper">
+	      		<h3 className="how-title">How it works</h3>
+	      		<div className="hiw-row">
+		      		<div className="hiw-box step-1">
+		      			<span className="number-bubble">1</span>
+		      			<p className="sub-text">Create an account and start sifting through recommended beginner's (or advanced!) content.</p>
+		      		</div>
+							<div className="hiw-box step-2">
+		      			<span className="number-bubble">2</span>
+		      			<p className="sub-text">Download our free Chrome Extension to automatically record and complete videos, articles, etc.</p>
+		      		</div>
+							<div className="hiw-box step-3">
+		      			<span className="number-bubble">3</span>
+		      			<p className="sub-text">Dynamically see real-time statistics of topic range, site range, total time spent, and more in our dashboard. </p>
+		      		</div>
+		      	</div>
+	      	</div>
+	      </section>
+	    </div>
     )
   }
 }
