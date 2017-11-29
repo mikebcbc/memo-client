@@ -8,8 +8,7 @@ export default class Nav extends Component {
     return (
     	<nav>
     		<ul>
-    			<li><Link to="/dashboard">Dashboard</Link></li>
-    			<li>Login</li>
+    			<li className="dashboard-link"><Link to="/dashboard">Dashboard</Link></li>
     		</ul>
     	</nav>
     )
