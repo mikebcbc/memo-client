@@ -1,115 +1,117 @@
-.top-section {
-	position: absolute;
-	left: 0;
-	right: 0;
-	.logo {
-		font-family: 'Habibi', serif;
-		font-size: 68px;
-		letter-spacing: 26px;
-		font-weight: 500;
-		text-transform: uppercase;
-		a {
-			text-decoration: none;
-			color: white;
-		}
-		@media (max-width: 769px) {
-			letter-spacing: 0px;
-			text-align: center;
-			width: 100%;
-		}
-	}
-	nav {
-		ul {
-			.dashboard-link {
-				a {
-					color: white;
-					text-decoration: none;
-					text-transform: uppercase;
-					letter-spacing: 2px;
-					color: #fff;
-		    	border-radius: 2px;
-		    	border: 1px solid rgba(255,255,255,0.67);
-		    	font-size: 12px;
-		    	padding: 12px;
-				}
-				@media (max-width: 769px) {
-					margin: 0;
-				}
+.landing {
+	.top-section {
+		position: absolute;
+		left: 0;
+		right: 0;
+		.logo {
+			font-family: 'Habibi', serif;
+			font-size: 68px;
+			letter-spacing: 26px;
+			font-weight: 500;
+			text-transform: uppercase;
+			a {
+				text-decoration: none;
+				color: white;
 			}
 			@media (max-width: 769px) {
-				padding: 0;
-			}
-		}	
-	}
-	@media (max-width: 769px) {
-		flex-direction: column;
-	}
-}
-
-.hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('/hero-section.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 659px;
-  width: 100%;
-  padding: 70px;
-  display: flex;
-  h2 {
-  	font-family: 'Habibi', serif;
-  	margin: auto 0 0 auto;
-  	font-weight: normal;
-  	width: 40%;
-  	font-size: 60px;
-  	color: white;
-  	@media (max-width: 769px) {
-  		width: 100%;
-  		font-size: 40px;
-  	}
-  }
-  @media (max-width: 769px) {
-  	padding: 20px 20px 60px 20px;
-  }
-}
-
-.how-it-works {
-	.inner-wrapper {
-		.how-title {
-			text-align: center;
-			&:after {
-				content: '';
-		    width: 90px;
-		    height: 2px;
-		    background-color: #000;
-		    position: absolute;
-		    display: block;
-		    left: calc(50% - 45px);
-		    bottom: 135px;
+				letter-spacing: 0px;
+				text-align: center;
+				width: 100%;
 			}
 		}
-		.hiw-row {
-			display: flex;
-			flex-direction: row;
-			margin-top: 60px;
-			.hiw-box {
-				line-height: 1.5;
-		    letter-spacing: 0.2px;
-		    text-align: center;
-		    color: #252525;
-		    flex: 1;
-		    padding-left: 30px;
-		    padding-right: 30px;
-				.number-bubble {
+		nav {
+			ul {
+				.dashboard-link {
+					a {
+						color: white;
+						text-decoration: none;
+						text-transform: uppercase;
+						letter-spacing: 2px;
+						color: #fff;
+			    	border-radius: 2px;
+			    	border: 1px solid rgba(255,255,255,0.67);
+			    	font-size: 12px;
+			    	padding: 12px;
+					}
+					@media (max-width: 769px) {
+						margin: 0;
+					}
+				}
+				@media (max-width: 769px) {
+					padding: 0;
+				}
+			}	
+		}
+		@media (max-width: 769px) {
+			flex-direction: column;
+		}
+	}
+
+	.hero-section {
+	  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('/hero-section.jpg');
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	  height: 659px;
+	  width: 100%;
+	  padding: 70px;
+	  display: flex;
+	  h2 {
+	  	font-family: 'Habibi', serif;
+	  	margin: auto 0 0 auto;
+	  	font-weight: normal;
+	  	width: 40%;
+	  	font-size: 60px;
+	  	color: white;
+	  	@media (max-width: 769px) {
+	  		width: 100%;
+	  		font-size: 40px;
+	  	}
+	  }
+	  @media (max-width: 769px) {
+	  	padding: 20px 20px 60px 20px;
+	  }
+	}
+
+	.how-it-works {
+		.inner-wrapper {
+			.how-title {
+				text-align: center;
+				&:after {
+					content: '';
+			    width: 90px;
+			    height: 2px;
 			    background-color: #000;
-			    border-radius: 50%;
-			    height: 45px;
-			    width: 45px;
-			    color: #fff;
-			    line-height: 45px;
+			    position: absolute;
+			    display: block;
+			    left: calc(50% - 45px);
+			    bottom: 135px;
+				}
+			}
+			.hiw-row {
+				display: flex;
+				flex-direction: row;
+				margin-top: 60px;
+				.hiw-box {
+					line-height: 1.5;
+			    letter-spacing: 0.2px;
 			    text-align: center;
-			    font-size: 28px;
-			    font-family: "Playfair", "PlayfairDisplay", serif;
-			    display: inline-block;
-			    margin-bottom: 11px;
+			    color: #252525;
+			    flex: 1;
+			    padding-left: 30px;
+			    padding-right: 30px;
+					.number-bubble {
+				    background-color: #000;
+				    border-radius: 50%;
+				    height: 45px;
+				    width: 45px;
+				    color: #fff;
+				    line-height: 45px;
+				    text-align: center;
+				    font-size: 28px;
+				    font-family: "Playfair", "PlayfairDisplay", serif;
+				    display: inline-block;
+				    margin-bottom: 11px;
+					}
 				}
 			}
 		}

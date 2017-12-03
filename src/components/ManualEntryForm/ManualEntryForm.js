@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form";
 
 import Input from "../Input/Input";
+import Select from "../Select/Select";
 import { required, nonEmpty, isTrimmed } from "../validators.js";
 
 import './ManualEntryForm.css';
@@ -14,7 +15,7 @@ export class ManualEntryForm extends Component {
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
       >
         <label htmlFor="topic">Topic</label>
-        <Field component={Input} type="text" name="topic" validate={required} />
+        <Field component={Select} name="topic" options={['turkey', 'chicken']} validate={required} />
         <label htmlFor="time">Time Spent</label>
         <Field
           component={Input}

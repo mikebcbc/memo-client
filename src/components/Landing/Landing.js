@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
 
 import './Landing.css';
 
@@ -6,6 +7,7 @@ export default class Landing extends Component {
   render() {
     return (
     	<div className="landing">
+				<Header />
       	<section className="hero-section">
         	<h2>A free, intuitive way to manage your self-learning.</h2>
 	      </section>
