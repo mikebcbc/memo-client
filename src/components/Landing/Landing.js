@@ -30,6 +30,18 @@ export default class Landing extends Component {
 		      	</div>
 	      	</div>
 	      </section>
+	      <section className="cta">
+	      	<div className="inner-wrapper">
+	      		<div className="cta-box">
+	      			<div className="section-left"></div>
+	      			<div className="section-right">
+		      			<h3>Ready to get started?</h3>
+		      			<p>Sign up today and start taking control of your schoolwork.</p>
+		      			<button>Register Today</button>
+		      		</div>
+	      		</div>
+	      	</div>
+	      </section>
 	    </div>
     )
   }
