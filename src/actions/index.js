@@ -4,14 +4,48 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
+// APP ACTIONS
+
+export const POPULATE_TOPICS = 'POPULATE_TOPICS';
+export const populateTopics = (topics) => ({
+	type: POPULATE_TOPICS,
+	topics
+});
+
+export const fetchUser = (token) => dispatch => {
+	fetch(`${API_BASE_URL}/users`, {
+		method: 'GET',
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	})
+	.then(res => {
+		if (!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+		return res.json();
+	})
+	.then(user => {
+		let countedTopics = user.content.reduce((acc, curr) => {
+			if (acc[curr.contentId.related_topic.name]) {
+				acc[curr.contentId.related_topic.name] += 1;
+			} else {
+				acc[curr.contentId.related_topic.name] = 1;
+			}
+			return acc;
+		}, {});
+		dispatch(populateTopics(countedTopics));
+	})
+}
+
+// AUTH ACTIONS
+
 const storeAuthInfo = (authToken, dispatch) => {
 	const decoded = jwtDecode(authToken);
 	dispatch(setAuthToken(authToken));
 	dispatch(setCurrentUser(decoded.user));
 	saveAuthToken(authToken);
 }
-
-// AUTH ACTIONS
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
