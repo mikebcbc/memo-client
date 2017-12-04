@@ -27,13 +27,19 @@ export const fetchUser = (token) => dispatch => {
 	})
 	.then(user => {
 		let countedTopics = user.content.reduce((acc, curr) => {
-			if (acc[curr.contentId.related_topic.name]) {
-				acc[curr.contentId.related_topic.name] += 1;
+			let exists = acc.findIndex((topic) => {
+				return topic.label === curr.contentId.related_topic.name;
+			});
+			if (exists !== -1) {
+				acc[exists].range ++;
 			} else {
-				acc[curr.contentId.related_topic.name] = 1;
+				acc.push({
+					label: curr.contentId.related_topic.name,
+					range: 1
+				})
 			}
 			return acc;
-		}, {});
+		}, []);
 		dispatch(populateTopics(countedTopics));
 	})
 }

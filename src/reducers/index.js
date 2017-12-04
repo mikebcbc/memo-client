@@ -1,19 +1,8 @@
-import {SET_AUTH_TOKEN, SET_CURRENT_USER} from '../actions';
+import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS} from '../actions';
 
 const initialState = {
 	authToken: null,
-	topics: [{
-		label: 'ReactJS',
-		range: 2 // Server will populate range after it loops through content
-	},
-	{
-		label: 'NodeJS',
-		range: 5
-	},
-	{
-		label: 'Design',
-		range: 9
-	}],
+	topics: [],
 	sites: [{
 		label: 'YouTube',
 		range: 5
@@ -61,6 +50,10 @@ export default function reducer(state = initialState, action) {
 		return Object.assign({}, state, {
 			currentUser: action.currentUser
 		});
+	} else if (action.type === POPULATE_TOPICS) {
+		return Object.assign({}, state, {
+			topics: action.topics
+		})
 	}
 	return state;
 }
