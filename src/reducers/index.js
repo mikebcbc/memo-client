@@ -1,4 +1,7 @@
+import {SET_AUTH_TOKEN, SET_CURRENT_USER} from '../actions';
+
 const initialState = {
+	authToken: null,
 	topics: [{
 		label: 'ReactJS',
 		range: 2 // Server will populate range after it loops through content
@@ -50,5 +53,14 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action) {
+	if (action.type === SET_AUTH_TOKEN) {
+		return Object.assign({}, state, {
+			authToken: action.authToken
+		});
+	} else if (action.type === SET_CURRENT_USER) {
+		return Object.assign({}, state, {
+			currentUser: action.currentUser
+		});
+	}
 	return state;
 }
