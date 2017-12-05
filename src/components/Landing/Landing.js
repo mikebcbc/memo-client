@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 import './Landing.css';
 
@@ -42,6 +43,7 @@ export default class Landing extends Component {
 	      		</div>
 	      	</div>
 	      </section>
+	      <Footer />
 	    </div>
     )
   }

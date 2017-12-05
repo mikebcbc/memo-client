@@ -7,6 +7,8 @@ import { required, nonEmpty, isTrimmed } from "../validators.js";
 
 import './ManualEntryForm.css';
 
+// How to populate the topic and link fields from state? connect not working, cant map state to props.
+
 export class ManualEntryForm extends Component {
   render() {
     return (

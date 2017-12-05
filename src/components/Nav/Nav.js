@@ -17,14 +17,11 @@ export class Nav extends Component {
   render() {
     return (
     	<nav>
-    		<ul>
-    			<li className="dashboard-link"><Link to="/dashboard">Dashboard</Link></li>
-          {
-            (this.props.loggedIn)
-              ? <li><Link to="/" onClick={() => this.logOut()}>Logout</Link></li>
-              : <li><Link to="/login">Login</Link></li>
-          }
-    		</ul>
+        {
+          (this.props.loggedIn)
+            ? <ul><li className="dashboard-link"><Link to="/dashboard">Dashboard</Link></li><li className="dashboard-link"><Link to="/" onClick={() => this.logOut()}>Logout</Link></li></ul>
+            : <ul><li className="dashboard-link"><Link to="/login">Login</Link></li></ul>
+        }
     	</nav>
     )
   }
