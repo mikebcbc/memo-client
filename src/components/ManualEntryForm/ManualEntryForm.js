@@ -15,7 +15,7 @@ export class ManualEntryForm extends Component {
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
       >
         <label htmlFor="topic">Topic</label>
-        <Field component={Select} name="topic" options={['turkey', 'chicken']} validate={required} />
+        <Field component={Select} name="topic" options={['ReactJS', 'NodeJS']} validate={required} />
         <label htmlFor="time">Time Spent</label>
         <Field
           component={Input}
@@ -34,7 +34,7 @@ export class ManualEntryForm extends Component {
           type="submit"
           disabled={this.props.pristine || this.props.submitting}
         >
-          Register
+          Submit
         </button>
       </form>
     )

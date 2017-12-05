@@ -1,0 +1,6 @@
+.content .inner-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .content .inner-wrapper > * {
+    flex: 1; }
