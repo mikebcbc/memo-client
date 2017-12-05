@@ -4,12 +4,20 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
+import {countTopics, countSites} from '../utils';
+
 // APP ACTIONS
 
 export const POPULATE_TOPICS = 'POPULATE_TOPICS';
 export const populateTopics = (topics) => ({
 	type: POPULATE_TOPICS,
 	topics
+});
+
+export const POPULATE_SITES = 'POPULATE_SITES';
+export const populateSites = (sites) => ({
+	type: POPULATE_SITES,
+	sites
 });
 
 export const fetchUser = (token) => dispatch => {
@@ -26,21 +34,10 @@ export const fetchUser = (token) => dispatch => {
 		return res.json();
 	})
 	.then(user => {
-		let countedTopics = user.content.reduce((acc, curr) => {
-			let exists = acc.findIndex((topic) => {
-				return topic.label === curr.contentId.related_topic.name;
-			});
-			if (exists !== -1) {
-				acc[exists].range ++;
-			} else {
-				acc.push({
-					label: curr.contentId.related_topic.name,
-					range: 1
-				})
-			}
-			return acc;
-		}, []);
+		let countedTopics = countTopics(user.content);
+		let countedSites = countSites(user.content);
 		dispatch(populateTopics(countedTopics));
+		dispatch(populateSites(countedSites));
 	})
 }
 

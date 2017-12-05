@@ -1,20 +1,9 @@
-import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS} from '../actions';
+import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, POPULATE_SITES} from '../actions';
 
 const initialState = {
 	authToken: null,
 	topics: [],
-	sites: [{
-		label: 'YouTube',
-		range: 5
-	},
-	{
-		label: 'Medium',
-		range: 3
-	},
-	{
-		label: 'StackOverflow',
-		range: 4
-	}],
+	sites: [],
 	timeSpent: [{ 
 		day: 'Monday',
 		time: 60 // should I store time like this?
@@ -53,6 +42,10 @@ export default function reducer(state = initialState, action) {
 	} else if (action.type === POPULATE_TOPICS) {
 		return Object.assign({}, state, {
 			topics: action.topics
+		})
+	} else if (action.type === POPULATE_SITES) {
+		return Object.assign({}, state, {
+			sites: action.sites
 		})
 	}
 	return state;

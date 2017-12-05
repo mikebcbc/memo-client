@@ -9,7 +9,7 @@ import Content from '../Content/Content';
 import ManualEntry from '../ManualEntry/ManualEntry';
 
 export class Dashboard extends Component {
-  componentDidMount() { // How to do only once?
+  componentWillMount() {
     if(this.props.loggedIn) {
       this.props.dispatch(fetchUser(this.props.authToken));
     }
