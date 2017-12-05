@@ -26,6 +26,12 @@ export const populateTime = (time) => ({
 	time
 });
 
+export const POPULATE_REC = 'POPULATE_REC';
+export const populateRec = (content) => ({
+	type: POPULATE_REC,
+	content
+});
+
 export const fetchUser = (token) => dispatch => {
 	fetch(`${API_BASE_URL}/users`, {
 		method: 'GET',
@@ -46,6 +52,24 @@ export const fetchUser = (token) => dispatch => {
 		dispatch(populateTopics(countedTopics));
 		dispatch(populateSites(countedSites));
 		dispatch(populateTime(countedTime));
+	})
+}
+
+export const fetchRec = (token) => dispatch => {
+	fetch(`${API_BASE_URL}/contents/rec-content`, {
+		method: 'GET',
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	})
+	.then(res => {
+		if (!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+		return res.json();
+	})
+	.then(content => {
+		dispatch(populateRec(content));
 	})
 }
 
@@ -71,8 +95,6 @@ export const setCurrentUser = currentUser => ({
 });
 
 export const login = (username, password) => dispatch => {
-	console.log(username);
-	console.log(password);
 	return (
 		fetch(`${API_BASE_URL}/auth/login`, {
 			method: 'POST',

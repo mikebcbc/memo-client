@@ -1,4 +1,7 @@
-.recommended-content {
+.recommended-content h3 {
+  text-align: center; }
+
+.recommended-content .content-list {
   text-align: center;
   list-style-type: none;
   margin: 0;

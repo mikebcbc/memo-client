@@ -1,8 +1,11 @@
-.completed-content {
+.completed-content h3 {
+  text-align: center; }
+
+.completed-content .card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
-  .completed-content .card {
+  .completed-content .card-container .card {
     display: flex;
     flex-direction: column;
     background: #f2f2f2;
@@ -12,14 +15,14 @@
     margin: 10px;
     width: 265px;
     text-align: center; }
-    .completed-content .card > * {
+    .completed-content .card-container .card > * {
       margin: 5px; }
-    .completed-content .card .site-title {
+    .completed-content .card-container .card .site-title {
       font-size: 18px; }
-    .completed-content .card .content-title {
+    .completed-content .card-container .card .content-title {
       font-weight: bold;
       font-size: 18px; }
-    .completed-content .card hr {
+    .completed-content .card-container .card hr {
       width: 100%; }
-    .completed-content .card .time-spent {
+    .completed-content .card-container .card .time-spent {
       font-size: 14px; }

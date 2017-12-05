@@ -1,18 +1,11 @@
-import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, POPULATE_SITES, POPULATE_TIME} from '../actions';
+import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, POPULATE_SITES, POPULATE_TIME, POPULATE_REC} from '../actions';
 
 const initialState = {
 	authToken: null,
 	topics: [],
 	sites: [],
 	timeSpent: 0,
-	content: [{
-		topic: 'ReactJS',
-		link: 'http://www.google.com'
-	},
-	{
-		topic: 'NodeJS',
-		link: 'http://www.npmjs.com'
-	}]
+	content: []
 }
 
 export default function reducer(state = initialState, action) {
@@ -35,6 +28,10 @@ export default function reducer(state = initialState, action) {
 	} else if (action.type === POPULATE_TIME) {
 		return Object.assign({}, state, {
 			timeSpent: action.time
+		})
+	} else if (action.type === POPULATE_REC) {
+		return Object.assign({}, state, {
+			content: action.content
 		})
 	}
 	return state;
