@@ -10,7 +10,7 @@ export class RecContent extends Component {
 	}
 
   render() {
-  	const listContent = this.props.content.map((item, index) => <li key={index}><span className="topic-tag">{item.related_topic.name}</span> <span className="site-tag">{item.site}</span> - <a href={item.link}>{item.title}</a></li>);
+  	const listContent = this.props.content.map((item, index) => <li key={index}><span className="topic-tag">{item.related_topic.name}</span> <span className="site-tag">[{item.site}] </span><a href={item.link}>{item.title}</a></li>);
     return (
 	    <div className="recommended-content">
 	    	<h3>Recommended Content</h3>

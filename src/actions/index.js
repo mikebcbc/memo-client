@@ -32,6 +32,12 @@ export const populateRec = (content) => ({
 	content
 });
 
+export const POPULATE_COMPLETED = 'POPULATE_COMPLETED';
+export const populateCompleted = (completed) => ({
+	type: POPULATE_COMPLETED,
+	completed
+});
+
 export const fetchUser = (token) => dispatch => {
 	fetch(`${API_BASE_URL}/users`, {
 		method: 'GET',
@@ -70,6 +76,24 @@ export const fetchRec = (token) => dispatch => {
 	})
 	.then(content => {
 		dispatch(populateRec(content));
+	})
+}
+
+export const fetchCompleted = (token) => dispatch => {
+	fetch(`${API_BASE_URL}/users/completed-content`, {
+		method: 'GET',
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	})
+	.then(res => {
+		if (!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+		return res.json();
+	})
+	.then(completed => {
+		dispatch(populateCompleted(completed));
 	})
 }
 
