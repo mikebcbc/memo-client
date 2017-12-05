@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
-import {Pie} from 'react-chartjs-2';
 import {connect} from 'react-redux';
+
+import './SiteStats.css';
 
 export class SiteStats extends Component {
   render() {
-  	const data = {
-			labels: this.props.sites.map((site) => site.label),
-			datasets: [{
-				data: this.props.sites.map((site) => site.range),
-				backgroundColor: [
-				'#FF6384',
-				'#36A2EB',
-				'#FFCE56'
-				],
-				hoverBackgroundColor: [
-				'#FF6384',
-				'#36A2EB',
-				'#FFCE56'
-				]
-			}]
-		};
+		const sites = this.props.sites.map((site, index) => {
+			return <li key={index}><span className="site-title">{site.label}</span>: <span className="site-number">{site.range}</span></li>
+		});
 
     return (
       <div className="sitestats">
-      	<Pie data={data} options={{maintainAspectRatio: true}} />
+      	<ul className="site-list">
+      		{sites}
+      	</ul>
       </div>
     )
   }

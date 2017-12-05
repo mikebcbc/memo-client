@@ -4,22 +4,7 @@ const initialState = {
 	authToken: null,
 	topics: [],
 	sites: [],
-	timeSpent: [{ 
-		day: 'Monday',
-		time: 60 // should I store time like this?
-	},
-	{
-		day: 'Tuesday',
-		time: 20
-	},
-	{
-		day: 'Wednesday',
-		time: 42
-	},
-	{
-		day: 'Thursday',
-		time: 14
-	}],
+	timeSpent: 12160,
 	content: [{
 		topic: 'ReactJS',
 		link: 'http://www.google.com'
