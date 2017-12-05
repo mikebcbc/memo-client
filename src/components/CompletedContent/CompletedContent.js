@@ -13,16 +13,16 @@ export default class CompletedContent extends Component {
         	<span className="time-spent">180 minutes spent</span>
         </div>
         <div className="card">
-        	<span className="site-title">Medium</span>
+        	<span className="site-title">Youtube</span>
         	<hr />
-        	<span className="content-title">Using CSS Flexbox</span>
-        	<span className="time-spent">180 minutes spent</span>
+        	<span className="content-title">CSS Grid vs. CSS Flexbox</span>
+        	<span className="time-spent">23 minutes spent</span>
         </div>
         <div className="card">
-        	<span className="site-title">Medium</span>
+        	<span className="site-title">StackOverflow</span>
         	<hr />
-        	<span className="content-title">Using CSS Flexbox</span>
-        	<span className="time-spent">180 minutes spent</span>
+        	<span className="content-title">How to correctly configure webpack?</span>
+        	<span className="time-spent">18 minutes spent</span>
         </div>
         <div className="card">
         	<span className="site-title">Medium</span>

@@ -4,7 +4,7 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
-import {countTopics, countSites} from '../utils';
+import {countTopics, countSites, countTime} from '../utils';
 
 // APP ACTIONS
 
@@ -18,6 +18,12 @@ export const POPULATE_SITES = 'POPULATE_SITES';
 export const populateSites = (sites) => ({
 	type: POPULATE_SITES,
 	sites
+});
+
+export const POPULATE_TIME = 'POPULATE_TIME';
+export const populateTime = (time) => ({
+	type: POPULATE_TIME,
+	time
 });
 
 export const fetchUser = (token) => dispatch => {
@@ -36,8 +42,10 @@ export const fetchUser = (token) => dispatch => {
 	.then(user => {
 		let countedTopics = countTopics(user.content);
 		let countedSites = countSites(user.content);
+		let countedTime = countTime(user.content);
 		dispatch(populateTopics(countedTopics));
 		dispatch(populateSites(countedSites));
+		dispatch(populateTime(countedTime));
 	})
 }
 

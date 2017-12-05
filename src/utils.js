@@ -32,4 +32,12 @@ function countSites(content) {
 	}, []);
 };
 
-export {countTopics, countSites};
+function countTime(content) {
+	let timeSpent = 0;
+	content.forEach((c) => {
+		timeSpent += c.time;
+	});
+	return timeSpent;
+};
+
+export {countTopics, countSites, countTime};

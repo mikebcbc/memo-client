@@ -9,14 +9,16 @@
     align-items: center;
     justify-content: center;
     padding: 30px;
-    margin: 10px; }
+    margin: 10px;
+    width: 265px;
+    text-align: center; }
     .completed-content .card > * {
       margin: 5px; }
     .completed-content .card .site-title {
       font-size: 18px; }
     .completed-content .card .content-title {
       font-weight: bold;
-      font-size: 22px; }
+      font-size: 18px; }
     .completed-content .card hr {
       width: 100%; }
     .completed-content .card .time-spent {
