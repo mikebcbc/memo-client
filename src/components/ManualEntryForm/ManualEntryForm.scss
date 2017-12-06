@@ -2,6 +2,18 @@
 	.form-group {
 		margin-bottom: 25px;
 	}
+	.completed {
+		display: flex;
+		flex-direction: row;
+		input {
+			height: 20px;
+			width: 20px;
+			margin-left: 15px;
+		}
+		p {
+			margin: 0;
+		}
+	}
   button {
 		border: none;
 		padding: 10px 35px;

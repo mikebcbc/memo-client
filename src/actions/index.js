@@ -112,6 +112,11 @@ export const setAuthToken = authToken => ({
 	authToken
 });
 
+export const CLEAR_AUTH = 'CLEAR_AUTH';
+export const clearAuth = () => ({
+    type: CLEAR_AUTH
+});
+
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const setCurrentUser = currentUser => ({
 	type: SET_CURRENT_USER,
@@ -136,7 +141,7 @@ export const login = (username, password) => dispatch => {
 			const {code} = err;
 			if (code === 401) {
 				return Promise.reject(
-					new SubmissionError({
+					new SubmissionError({ // How to use/display this on form?
 						_error: 'Incorrect username or password.'
 					})
 				);
@@ -144,3 +149,20 @@ export const login = (username, password) => dispatch => {
 		})
 	);
 };
+
+export const refreshToken = () => (dispatch, getState) => {
+	const authToken = getState().memo.authToken;
+	return fetch(`${API_BASE_URL}/auth/refresh`, {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${authToken}`
+		}
+	})
+	.then(res => res.json())
+	.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+	.catch(err => {
+		dispatch(clearAuth());
+		clearAuthToken(authToken);
+	});
+};
+

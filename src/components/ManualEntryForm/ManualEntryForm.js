@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 
 import Input from "../Input/Input";
 import Select from "../Select/Select";
-import { required, nonEmpty, isTrimmed } from "../validators.js";
+import { required, nonEmpty, isTrimmed, isNumber } from "../validators.js";
 
 import './ManualEntryForm.css';
 
@@ -21,12 +21,17 @@ export class ManualEntryForm extends Component {
           <Field component={Select} name="topic" options={['ReactJS', 'NodeJS']} validate={required} />
         </div>
         <div className="form-group">
-          <label htmlFor="time">Time Spent</label>
-          <Field component={Input} type="text" name="time" validate={[required, nonEmpty, isTrimmed]} />
+          <label htmlFor="link">Content</label>
+          <Field component={Select} name="topic" options={['this one', 'that one']} validate={required} />
+        </div>
+        <div className="form-group completed">
+          <label htmlFor="completed">Is the content completed?</label>
+          <Field name="completed" component={Input} type="radio" value="no"/> <p>No</p>
+          <Field name="completed" component={Input} type="radio" value="yes"/> <p>Yes</p>
         </div>
         <div className="form-group">
-          <label htmlFor="link">Link to Article/Video</label>
-          <Field component={Input} type="text" name="link" validate={[required, isTrimmed]} />
+          <label htmlFor="time">Time Spent</label>
+          <Field component={Input} type="text" name="time" validate={[required, nonEmpty, isTrimmed, isNumber]} />
         </div>
         <div className="form-group">
           <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>
