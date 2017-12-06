@@ -1,0 +1,8 @@
+header {
+  background: #95ADB6; }
+  header .dashboard-link a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff; }

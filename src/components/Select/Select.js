@@ -23,7 +23,7 @@ export default class Select extends React.Component {
     const options = this.props.options.map((option, index) => <option key={index} value={option} >{option}</option>);
 
     return (
-      <div className="form-input">
+      <div className="form-input select-input">
         <select
           {...this.props.input}
           id={this.props.input.name}

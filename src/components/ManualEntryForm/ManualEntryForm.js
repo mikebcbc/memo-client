@@ -16,28 +16,21 @@ export class ManualEntryForm extends Component {
         className="manual-entry-form"
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
       >
-        <label htmlFor="topic">Topic</label>
-        <Field component={Select} name="topic" options={['ReactJS', 'NodeJS']} validate={required} />
-        <label htmlFor="time">Time Spent</label>
-        <Field
-          component={Input}
-          type="text"
-          name="time"
-          validate={[required, nonEmpty, isTrimmed]}
-        />
-        <label htmlFor="link">Link to Article/Video</label>
-        <Field
-          component={Input}
-          type="text"
-          name="link"
-          validate={[required, isTrimmed]}
-        />
-        <button
-          type="submit"
-          disabled={this.props.pristine || this.props.submitting}
-        >
-          Submit
-        </button>
+        <div className="form-group">
+          <label htmlFor="topic">Topic</label>
+          <Field component={Select} name="topic" options={['ReactJS', 'NodeJS']} validate={required} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="time">Time Spent</label>
+          <Field component={Input} type="text" name="time" validate={[required, nonEmpty, isTrimmed]} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="link">Link to Article/Video</label>
+          <Field component={Input} type="text" name="link" validate={[required, isTrimmed]} />
+        </div>
+        <div className="form-group">
+          <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>
+        </div>
       </form>
     )
   }

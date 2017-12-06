@@ -1,8 +1,26 @@
+.select-input {
+  position: relative; }
+  .select-input:after {
+    content: '';
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 12px;
+    bottom: 44%;
+    display: block;
+    width: .5em;
+    height: .5em;
+    border: 2px solid black;
+    border-top: none;
+    border-right: none;
+    z-index: 99999999; }
+
 select {
   border: none;
   outline: none;
-  background-color: #dddddd;
+  appearance: none;
   padding: 10px;
+  border-radius: 0;
+  background: #dddddd;
   margin-bottom: 15px;
   font-size: 14px;
   width: 100%; }

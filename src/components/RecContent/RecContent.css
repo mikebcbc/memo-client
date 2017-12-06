@@ -17,3 +17,6 @@
         color: #0C65A5;
         background: #E1ECF4;
         text-transform: lowercase; }
+      .recommended-content .content-list li a {
+        font-weight: bold;
+        text-decoration: none; }

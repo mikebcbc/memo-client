@@ -1,0 +1,9 @@
+.manual-entry-form .form-group {
+  margin-bottom: 25px; }
+
+.manual-entry-form button {
+  border: none;
+  padding: 10px 35px;
+  background: red;
+  border-radius: 0;
+  color: white; }

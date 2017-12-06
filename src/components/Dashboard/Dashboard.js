@@ -4,9 +4,12 @@ import {Redirect} from 'react-router-dom';
 import {fetchUser} from '../../actions';
 
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Stats from '../Stats/Stats';
 import Content from '../Content/Content';
 import ManualEntry from '../ManualEntry/ManualEntry';
+
+import './Dashboard.css';
 
 export class Dashboard extends Component {
   componentWillMount() {
@@ -25,6 +28,7 @@ export class Dashboard extends Component {
         <Stats />
         <Content />
         <ManualEntry />
+        <Footer />
       </div>
     )
   }
