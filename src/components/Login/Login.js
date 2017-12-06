@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import LoginForm from "../LoginForm/LoginForm";
 import "./Login.css";
 
@@ -13,12 +15,20 @@ class Login extends Component {
     }
     return (
       <div className="login">
-        <div className="login-header">
-          <h3>Login to Memo</h3>
-          <span>Enter a username and password to log on!</span>
-        </div>
-      	<LoginForm />
-        <span className="register">Not a member yet? <Link to="/register">Register</Link> FREE today!</span>
+        <Header />
+        <section className="login-area">
+          <div className="inner-wrapper">
+            <div className="login-group">
+              <div className="login-header">
+                <h1>Login to Memo</h1>
+                <span>Enter a username and password to log on!</span>
+              </div>
+          	  <LoginForm />
+              <span className="register">Not a member yet? <Link to="/register">Register</Link> FREE today!</span>
+            </div>
+          </div>
+        </section>
+        <Footer />
       </div>
     );
   }
