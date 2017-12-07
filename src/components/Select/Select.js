@@ -29,6 +29,7 @@ export default class Select extends React.Component {
           id={this.props.input.name}
           ref={input => (this.input = input)}
         >
+        <option value="select">{this.props.placeholder}</option>
         {options}
         </select>
         {error}

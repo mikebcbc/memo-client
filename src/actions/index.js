@@ -4,9 +4,15 @@ import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
-import {countTopics, countSites, countTime} from '../utils';
+import {countTopics, countSites, countTime, normalizeResponseErrors} from '../utils';
 
 // APP ACTIONS
+
+export const UPDATE_DISPLAYED = 'UPDATE_DISPLAYED';
+export const updateDisplayed = (topic) => ({
+	type: UPDATE_DISPLAYED,
+	topic
+});
 
 export const POPULATE_TOPICS = 'POPULATE_TOPICS';
 export const populateTopics = (topics) => ({
@@ -135,13 +141,14 @@ export const login = (username, password) => dispatch => {
 				password
 			})
 		})
+		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
 		.catch(err => {
 			const {code} = err;
 			if (code === 401) {
 				return Promise.reject(
-					new SubmissionError({ // How to use/display this on form?
+					new SubmissionError({
 						_error: 'Incorrect username or password.'
 					})
 				);

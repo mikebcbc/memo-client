@@ -47,7 +47,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.memo.currentUser !== null
+  loggedIn: state.memo.authToken !== null
 });
 
 export default connect(mapStateToProps)(App);

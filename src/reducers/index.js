@@ -1,8 +1,10 @@
-import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, POPULATE_SITES, POPULATE_TIME, POPULATE_REC, POPULATE_COMPLETED, CLEAR_AUTH} from '../actions';
+import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, POPULATE_SITES, POPULATE_TIME, POPULATE_REC, POPULATE_COMPLETED, CLEAR_AUTH, UPDATE_DISPLAYED} from '../actions';
 
 const initialState = {
 	authToken: null,
+	contentDisplayed: [],
 	currentUser: null,
+	defaultTopics: ['ReactJS', 'NodeJS', 'Design', 'JavaScript', 'Dev Tools'],
 	topics: [],
 	sites: [],
 	timeSpent: 0,
@@ -43,6 +45,12 @@ export default function reducer(state = initialState, action) {
 	} else if (action.type === POPULATE_COMPLETED) {
 		return Object.assign({}, state, {
 			completed: action.completed
+		});
+	} else if (action.type === UPDATE_DISPLAYED) {
+		return Object.assign({}, state, {
+			contentDisplayed: state.content.filter((content) => {
+				return content.related_topic.name === action.topic;
+			})
 		});
 	}
 	return state;
