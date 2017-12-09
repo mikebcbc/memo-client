@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form";
 import {connect} from 'react-redux';
 
-import {updateDisplayed} from '../../actions';
+import {updateDisplayed, submitContent} from '../../actions';
 
 import Input from "../Input/Input";
 import Select from "../Select/Select";
@@ -16,20 +16,18 @@ export class ManualEntryForm extends Component {
     super(props);
     this.updateDisplayed = this.updateDisplayed.bind(this);
   }
+
+  onSubmit(values) {
+    this.props.dispatch(submitContent(values, this.props.authToken));
+  }
   
   updateDisplayed(e) {
     this.props.dispatch(updateDisplayed(e.target.value));
   }
 
   render() {
-    const topics = this.props.topics.map((topic) => {
-      return topic;
-    });
-
-    const content = this.props.content.map((content) => {
-      return content.title;
-    })
-
+    const topics = this.props.topics.map((topic, index) => ({ id: topic, title: topic }));
+    const content = this.props.content.map(content => ({ id: content._id, title: content.title }));
     return (
     	<form
         className="manual-entry-form"
@@ -45,8 +43,8 @@ export class ManualEntryForm extends Component {
         </div>
         <div className="form-group completed">
           <label htmlFor="completed">Is the content completed?</label>
-          <Field name="completed" component={Input} type="radio" value="no"/> <p>No</p>
-          <Field name="completed" component={Input} type="radio" value="yes"/> <p>Yes</p>
+          <Field name="completed" component={Input} type="radio" value="false"/> <p>No</p>
+          <Field name="completed" component={Input} type="radio" value="true"/> <p>Yes</p>
         </div>
         <div className="form-group">
           <label htmlFor="time">Time Spent (in minutes)</label>
@@ -62,7 +60,8 @@ export class ManualEntryForm extends Component {
 
 const mapStateToProps = state => ({
   topics: state.memo.defaultTopics,
-  content: state.memo.contentDisplayed
+  content: state.memo.contentDisplayed,
+  authToken: state.memo.authToken
 });
 
 ManualEntryForm = connect(mapStateToProps)(ManualEntryForm);

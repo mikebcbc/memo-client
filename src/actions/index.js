@@ -103,6 +103,25 @@ export const fetchCompleted = (token) => dispatch => {
 	})
 }
 
+export const submitContent = (values, token) => dispatch => {
+	console.log(values);
+	fetch(`${API_BASE_URL}/users/content`, {
+		method: 'POST',
+		body: JSON.stringify(values),
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${token}`
+		}
+	})
+	.then(res => {
+		if (!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+		return res.json();
+	})
+	.then(() => 'Submitted Form')
+}
+
 // AUTH ACTIONS
 
 const storeAuthInfo = (authToken, dispatch) => {
@@ -128,6 +147,34 @@ export const setCurrentUser = currentUser => ({
 	type: SET_CURRENT_USER,
 	currentUser
 });
+
+export const register = (username, password) => dispatch => {
+	return (
+		fetch(`${API_BASE_URL}/auth/register`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				username,
+				password
+			})
+		})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+		.catch(err => {
+			const {code} = err;
+			if (code === 401) {
+				return Promise.reject(
+					new SubmissionError({
+						_error: 'Incorrect username or password.'
+					})
+				);
+			}
+		})
+	);
+};
 
 export const login = (username, password) => dispatch => {
 	return (

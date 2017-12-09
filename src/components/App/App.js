@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Landing from '../Landing/Landing';
 import Dashboard from '../Dashboard/Dashboard';
 import Login from '../Login/Login';
+import Register from '../Register/Register';
 import {refreshToken} from '../../actions';
 
 import './App.css';
@@ -39,7 +40,8 @@ class App extends Component {
     		<div className="app">
           <Route exact path="/" component={Landing} />
           <Route exact path="/dashboard" component={Dashboard} />
-      		<Route exact path="/login" component={Login} />
+          <Route exact path="/login" component={Login} />
+      		<Route exact path="/register" component={Register} />
       	</div>
       </Router>
     );

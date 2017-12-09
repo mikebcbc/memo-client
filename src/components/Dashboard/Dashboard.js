@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import io from 'socket.io-client';
 import {fetchUser} from '../../actions';
 
 import Header from '../Header/Header';
@@ -22,6 +23,9 @@ export class Dashboard extends Component {
     if(!this.props.loggedIn) {
       return <Redirect to="/login" />;
     }
+
+    io.connect('http://localhost:3001', {query: `token=${this.props.authToken}`});
+
     return (
       <div className="dashboard">
         <Header />
