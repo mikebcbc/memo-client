@@ -19,12 +19,23 @@ export class Dashboard extends Component {
     }
   }
 
+  componentDidUpdate() { //This right?
+    if(this.props.loggedIn) {
+      this.props.dispatch(fetchUser(this.props.authToken));
+    }
+  }
+
   render() {
     if(!this.props.loggedIn) {
       return <Redirect to="/login" />;
     }
 
-    io.connect('http://localhost:3001', {query: `token=${this.props.authToken}`});
+    const socket = io.connect('http://localhost:3001', {query: `auth_token=${this.props.authToken}`});
+
+    socket.on('reloadState', () => {
+      console.log('triggered');
+      this.forceUpdate();
+    });
 
     return (
       <div className="dashboard">
