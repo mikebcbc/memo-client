@@ -1,5 +1,22 @@
 .recommended-content {
-  text-align: center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0; }
+  background: #f6f5f2;
+  padding: 50px;
+  border-radius: 5px; }
+  .recommended-content h3 {
+    text-align: center; }
+  .recommended-content .content-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    .recommended-content .content-list li {
+      margin-top: 12px; }
+      .recommended-content .content-list li .topic-tag {
+        font-size: 12px;
+        padding: 3px;
+        border-radius: 3px;
+        color: #0C65A5;
+        background: #E1ECF4;
+        text-transform: lowercase; }
+      .recommended-content .content-list li a {
+        font-weight: bold;
+        text-decoration: none; }

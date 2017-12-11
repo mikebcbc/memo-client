@@ -26,6 +26,8 @@ export default class Input extends React.Component {
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}
+          min={this.props.min} 
+          max={this.props.max} 
           placeholder={this.props.placeholder}
           ref={input => (this.input = input)}
         />

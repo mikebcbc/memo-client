@@ -20,15 +20,16 @@ export default class Select extends React.Component {
       warning = <div className="form-warning">{this.props.meta.warning}</div>;
     }
 
-    const options = this.props.options.map((option, index) => <option key={index} value={option} >{option}</option>);
+    const options = this.props.options.map((option, index) => <option key={index} value={option.id} >{option.title}</option>);
 
     return (
-      <div className="form-input">
+      <div className="form-input select-input">
         <select
           {...this.props.input}
           id={this.props.input.name}
           ref={input => (this.input = input)}
         >
+        <option value="select">{this.props.placeholder}</option>
         {options}
         </select>
         {error}

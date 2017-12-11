@@ -1,0 +1,38 @@
+.completed-content {
+  padding: 50px; }
+  .completed-content h3 {
+    text-align: center; }
+  .completed-content .card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    @media (max-width: 769px) {
+      .completed-content .card-container {
+        flex-direction: column; } }
+    .completed-content .card-container .card {
+      display: flex;
+      flex-direction: column;
+      background: #fdfdfd;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin: 5px;
+      width: calc(50% - 10px);
+      text-align: center; }
+      @media (max-width: 769px) {
+        .completed-content .card-container .card {
+          width: 100%; } }
+      .completed-content .card-container .card > * {
+        margin: 5px; }
+      .completed-content .card-container .card .site-title {
+        font-size: 16px; }
+      .completed-content .card-container .card .content-title {
+        font-weight: bold;
+        font-size: 16px; }
+        .completed-content .card-container .card .content-title a {
+          text-decoration: none;
+          color: inherit; }
+      .completed-content .card-container .card hr {
+        width: 100%; }
+      .completed-content .card-container .card .time-spent {
+        font-size: 14px; }

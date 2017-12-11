@@ -1,31 +1,18 @@
 .landing .top-section {
   position: absolute;
   left: 0;
-  right: 0; }
-  .landing .top-section .logo {
-    font-family: 'Habibi', serif;
-    font-size: 68px;
-    letter-spacing: 26px;
-    font-weight: 500;
-    text-transform: uppercase; }
-    .landing .top-section .logo a {
-      text-decoration: none;
-      color: white; }
-    @media (max-width: 769px) {
-      .landing .top-section .logo {
-        letter-spacing: 0px;
-        text-align: center;
-        width: 100%; } }
+  right: 0;
+  background: none; }
+  .landing .top-section h1 {
+    font-size: 68px; }
   .landing .top-section nav ul .dashboard-link a {
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #fff;
     border-radius: 2px;
     border: 1px solid rgba(255, 255, 255, 0.67);
-    font-size: 12px;
-    padding: 12px; }
+    padding: 12px;
+    font-size: 12px; }
+    @media (max-width: 769px) {
+      .landing .top-section nav ul .dashboard-link a {
+        border: none; } }
   @media (max-width: 769px) {
     .landing .top-section nav ul .dashboard-link {
       margin: 0; } }
@@ -48,7 +35,7 @@
     font-family: 'Habibi', serif;
     margin: auto 0 0 auto;
     font-weight: normal;
-    width: 40%;
+    width: 50%;
     font-size: 60px;
     color: white; }
     @media (max-width: 769px) {
@@ -60,7 +47,8 @@
       padding: 20px 20px 60px 20px; } }
 
 .landing .how-it-works .inner-wrapper .how-title {
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   .landing .how-it-works .inner-wrapper .how-title:after {
     content: '';
     width: 90px;
@@ -69,12 +57,15 @@
     position: absolute;
     display: block;
     left: calc(50% - 45px);
-    bottom: 135px; }
+    top: 35px; }
 
 .landing .how-it-works .inner-wrapper .hiw-row {
   display: flex;
   flex-direction: row;
   margin-top: 60px; }
+  @media (max-width: 769px) {
+    .landing .how-it-works .inner-wrapper .hiw-row {
+      flex-direction: column; } }
   .landing .how-it-works .inner-wrapper .hiw-row .hiw-box {
     line-height: 1.5;
     letter-spacing: 0.2px;
@@ -95,3 +86,39 @@
       font-family: "Playfair", "PlayfairDisplay", serif;
       display: inline-block;
       margin-bottom: 11px; }
+
+.landing .cta .cta-box {
+  display: flex;
+  background-color: #f5f5f2; }
+  @media (max-width: 769px) {
+    .landing .cta .cta-box {
+      flex-direction: column; } }
+  .landing .cta .cta-box .section-left {
+    background: url("/ready-to-start.jpg");
+    min-height: 280px;
+    background-repeat: no-repeat;
+    flex: 1; }
+    @media (max-width: 769px) {
+      .landing .cta .cta-box .section-left {
+        min-height: 190px;
+        background-size: cover; } }
+  .landing .cta .cta-box .section-right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 1;
+    justify-content: center; }
+    @media (max-width: 769px) {
+      .landing .cta .cta-box .section-right {
+        padding: 20px; } }
+    .landing .cta .cta-box .section-right h3 {
+      font-family: 'Muli', sans-serif;
+      margin: 0; }
+    .landing .cta .cta-box .section-right p {
+      margin: 30px 0; }
+    .landing .cta .cta-box .section-right button {
+      border: none;
+      padding: 15px 55px;
+      background: red;
+      border-radius: 0;
+      color: white; }

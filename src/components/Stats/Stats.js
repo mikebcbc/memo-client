@@ -11,9 +11,16 @@ export default class Stats extends Component {
     return (
       <section className="stats">
       	<div className="inner-wrapper">
-        	<TopicStats />
-        	<TimeStats />
-        	<SiteStats />
+          <div className="stats-container">
+            <div className="section-left">
+              <TimeStats />
+              <hr />
+              <SiteStats />
+            </div>
+            <div className="section-right">
+              <TopicStats />
+            </div>
+          </div>
         </div>
       </section>
     )

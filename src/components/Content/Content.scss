@@ -1,0 +1,14 @@
+.content {
+	background: #eff0f2;
+	.inner-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		> * {
+			flex: 1;
+		}
+		@media (max-width: 769px) {
+			flex-direction: column;
+		}
+	}
+}

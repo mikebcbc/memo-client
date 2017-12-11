@@ -1,0 +1,11 @@
+.content {
+  background: #eff0f2; }
+  .content .inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    .content .inner-wrapper > * {
+      flex: 1; }
+    @media (max-width: 769px) {
+      .content .inner-wrapper {
+        flex-direction: column; } }

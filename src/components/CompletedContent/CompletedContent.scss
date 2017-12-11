@@ -1,0 +1,48 @@
+.completed-content {
+	padding: 50px;
+	h3 {
+		text-align: center;
+	}
+	.card-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		@media (max-width: 769px) {
+			flex-direction: column;
+		}
+		.card {
+			display: flex;
+			flex-direction: column;
+			background: #fdfdfd;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+	    margin: 5px;
+	    width: calc(50% - 10px);
+			text-align: center;
+			@media (max-width: 769px) {
+				width: 100%;
+			}
+			> * {
+				margin: 5px;
+			}
+			.site-title {
+				font-size: 16px;
+			}
+			.content-title {
+				font-weight: bold;
+				font-size: 16px;
+				a {
+					text-decoration: none;
+					color: inherit;
+				}
+			}
+			hr {
+				width: 100%;
+			}
+			.time-spent {
+				font-size: 14px;
+			}
+		}
+	}
+}

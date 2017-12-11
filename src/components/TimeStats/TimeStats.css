@@ -1,0 +1,11 @@
+.timestats {
+  text-align: center; }
+  .timestats .time-spent {
+    color: #efb471;
+    font-weight: bold;
+    font-size: 60px; }
+    .timestats .time-spent .suffix {
+      display: block;
+      font-size: 14px;
+      font-weight: normal;
+      color: black; }
