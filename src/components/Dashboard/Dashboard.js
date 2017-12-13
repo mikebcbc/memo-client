@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import io from 'socket.io-client';
 import {fetchUser} from '../../actions';
-import {API_BASE_URL} from '../../config';
+// import {API_BASE_URL} from '../../config';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
