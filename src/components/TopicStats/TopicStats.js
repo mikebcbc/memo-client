@@ -11,12 +11,9 @@ export class TopicStats extends Component {
 				backgroundColor: [
 				'#FF6384',
 				'#36A2EB',
-				'#FFCE56'
-				],
-				hoverBackgroundColor: [
-				'#FF6384',
-				'#36A2EB',
-				'#FFCE56'
+				'#FFCE56',
+				'#2ecc71',
+				'#8e44ad'
 				]
 			}]
 		};

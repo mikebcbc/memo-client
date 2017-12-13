@@ -23,7 +23,7 @@ export default class Landing extends Component {
 		      		</div>
 							<div className="hiw-box step-2">
 		      			<span className="number-bubble">2</span>
-		      			<p className="sub-text">Download our free Chrome Extension to automatically record and complete videos, articles, etc.</p>
+		      			<p className="sub-text">Download our <a href="https://chrome.google.com/webstore/detail/memo-extension/jbejflnikmmhgdhmliiehpjlkpgejdkc" target="_blank" rel="noopener noreferrer">free Chrome Extension</a> to automatically record and complete videos, articles, etc.</p>
 		      		</div>
 							<div className="hiw-box step-3">
 		      			<span className="number-bubble">3</span>

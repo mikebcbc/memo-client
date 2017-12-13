@@ -11,7 +11,7 @@ export default class ManualEntry extends Component {
         <div className="inner-wrapper">
           <div className="info">
   				  <h3>Submit a manual entry</h3>
-  				  <p>Not using our handy <a>chrome extension</a>? Not a problem. Feel free to manually submit an entry here to incorporate it into your statistics!</p>
+  				  <p>Not using our handy <a href="https://chrome.google.com/webstore/detail/memo-extension/jbejflnikmmhgdhmliiehpjlkpgejdkc" target="_blank" rel="noopener noreferrer">chrome extension</a>? Not a problem. Feel free to manually submit an entry here to incorporate it into your statistics!</p>
 			    </div>
 			    <div className="manual-form">
 				    <ManualEntryForm />
