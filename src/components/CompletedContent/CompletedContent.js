@@ -9,10 +9,6 @@ export class CompletedContent extends Component {
 		this.props.dispatch(fetchCompleted(this.props.authToken));
 	}
 
-  // componentWillUpdate() { 
-  //   this.props.dispatch(fetchCompleted(this.props.authToken));
-  // }
-
   render() {
   	const cards = this.props.completed.map((item, index) => <div className="card" key={index}><span className="site-title">{item.contentId.site}</span><hr /><span className="content-title"><a href={item.contentId.link} target="_blank">{item.contentId.title}</a></span><span className="time-spent">{item.time} minutes spent</span></div>)
     return (

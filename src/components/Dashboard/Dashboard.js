@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import io from 'socket.io-client';
-import {fetchUser} from '../../actions';
-// import {API_BASE_URL} from '../../config';
+import {fetchUser, acceptExtension} from '../../actions';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -14,30 +13,22 @@ import ManualEntry from '../ManualEntry/ManualEntry';
 import './Dashboard.css';
 
 export class Dashboard extends Component {
+
   componentWillMount() {
     if(this.props.loggedIn) {
       this.props.dispatch(fetchUser(this.props.authToken));
     }
   }
 
-  componentDidUpdate() {
-    if(this.props.loggedIn) {
-      this.props.dispatch(fetchUser(this.props.authToken));
-    }
-  }
-
   render() {
+    const socket = io.connect(`https://secret-island-23486.herokuapp.com`, {query: `auth_token=${this.props.authToken}`}); // This goes off twice. Tried constructor. User object not accessible.
+    socket.on('reloadState', (content) => {
+      this.props.dispatch(acceptExtension(content, this.props.user, this.props.authToken))
+    });
+
     if(!this.props.loggedIn) {
       return <Redirect to="/login" />;
     }
-
-    // const socket = io.connect(`http://${API_BASE_URL}`, {query: `auth_token=${this.props.authToken}`});
-    const socket = io.connect(`https://secret-island-23486.herokuapp.com`, {query: `auth_token=${this.props.authToken}`});
-
-    socket.on('reloadState', (content) => {
-      // console.log(content); //dispatch action to redux
-      this.forceUpdate();
-    });
 
     return (
       <div className="dashboard">
@@ -53,6 +44,7 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => ({
   authToken: state.memo.authToken,
+  user: state.memo.user,
   loggedIn: state.memo.authToken !== null
 });
 

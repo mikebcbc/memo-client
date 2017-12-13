@@ -129,6 +129,32 @@ export const fetchCompleted = (token) => dispatch => {
 	})
 }
 
+export const acceptExtension = (content, user, token) => dispatch => {
+	console.log(content);
+	console.log(user);
+	console.log(token);
+	const index = user.content.findIndex((c) => {
+		return c.contentId._id === content.contentId._id;
+	});
+	if (index > -1) {
+		user.content[index] = content;
+	} else {
+		user.content.push(content);
+	}
+	let countedTopics = countTopics(user.content);
+	let countedSites = countSites(user.content);
+	let countedTime = countTime(user.content);
+	dispatch(populateTopics(countedTopics));
+	dispatch(populateSites(countedSites));
+	dispatch(populateTime(countedTime));
+	dispatch(saveUser(user));
+	if (content.completed) {
+		dispatch(updateCompleted(content));
+	} else {
+		dispatch(removeCompleted(content));
+	}
+}
+
 export const submitContent = (values, user, token) => dispatch => {
 	fetch(`${API_BASE_URL}/users/content`, {
 		method: 'POST',
@@ -173,7 +199,7 @@ export const submitContent = (values, user, token) => dispatch => {
 const storeAuthInfo = (authToken, dispatch) => {
 	const decoded = jwtDecode(authToken);
 	dispatch(setAuthToken(authToken));
-	dispatch(setCurrentUser(decoded.user));
+	dispatch(saveUser(decoded.user));
 	saveAuthToken(authToken);
 }
 
@@ -186,12 +212,6 @@ export const setAuthToken = authToken => ({
 export const CLEAR_AUTH = 'CLEAR_AUTH';
 export const clearAuth = () => ({
     type: CLEAR_AUTH
-});
-
-export const SET_CURRENT_USER = 'SET_CURRENT_USER';
-export const setCurrentUser = currentUser => ({
-	type: SET_CURRENT_USER,
-	currentUser
 });
 
 export const register = (username, password) => dispatch => {
