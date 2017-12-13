@@ -1,4 +1,4 @@
-import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, SAVE_USER, UPDATE_COMPLETED, REMOVE_COMPLETED, UPDATE_CONTENT, POPULATE_SITES, POPULATE_TIME, POPULATE_REC, POPULATE_COMPLETED, CLEAR_AUTH, UPDATE_DISPLAYED} from '../actions';
+import {SET_AUTH_TOKEN, POPULATE_TOPICS, SAVE_USER, UPDATE_COMPLETED, REMOVE_COMPLETED, UPDATE_CONTENT, POPULATE_SITES, POPULATE_TIME, POPULATE_REC, POPULATE_COMPLETED, CLEAR_AUTH, UPDATE_DISPLAYED} from '../actions';
 
 const initialState = {
 	authToken: null,
@@ -16,10 +16,6 @@ export default function reducer(state = initialState, action) {
 	if (action.type === SET_AUTH_TOKEN) {
 		return Object.assign({}, state, {
 			authToken: action.authToken
-		});
-	} else if (action.type === SET_CURRENT_USER) {
-		return Object.assign({}, state, {
-			currentUser: action.currentUser
 		});
 	} else if (action.type === CLEAR_AUTH) {
 		return Object.assign({}, state, {
