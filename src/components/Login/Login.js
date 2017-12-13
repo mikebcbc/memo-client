@@ -24,6 +24,7 @@ class Login extends Component {
                 <span>Enter a username and password to log on!</span>
               </div>
           	  <LoginForm />
+              <p className="demo-account"><strong>[DEMO ACCOUNT]</strong> Use credentials: <strong>demo</strong> for both username and password.</p>
               <span className="register-blurb">Not a member yet? <Link to="/register">Register</Link> FREE today!</span>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import {Link} from 'react-router-dom';
 
 import './Landing.css';
 
@@ -38,7 +39,7 @@ export default class Landing extends Component {
 	      			<div className="section-right">
 		      			<h3>Ready to get started?</h3>
 		      			<p>Sign up today and start taking control of your schoolwork.</p>
-		      			<button>Register Today</button>
+		      			<button><Link to="/register">Register Today</Link></button>
 		      		</div>
 	      		</div>
 	      	</div>

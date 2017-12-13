@@ -9,7 +9,7 @@ export class CompletedContent extends Component {
 		this.props.dispatch(fetchCompleted(this.props.authToken));
 	}
 
-  //What to put here? component() { 
+  // componentWillUpdate() { 
   //   this.props.dispatch(fetchCompleted(this.props.authToken));
   // }
 

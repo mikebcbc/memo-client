@@ -18,7 +18,7 @@ export class ManualEntryForm extends Component {
   }
 
   onSubmit(values) {
-    this.props.dispatch(submitContent(values, this.props.authToken));
+    this.props.dispatch(submitContent(values, this.props.user, this.props.authToken));
   }
   
   updateDisplayed(e) {
@@ -61,7 +61,8 @@ export class ManualEntryForm extends Component {
 const mapStateToProps = state => ({
   topics: state.memo.defaultTopics,
   content: state.memo.contentDisplayed,
-  authToken: state.memo.authToken
+  authToken: state.memo.authToken,
+  user: state.memo.user
 });
 
 ManualEntryForm = connect(mapStateToProps)(ManualEntryForm);

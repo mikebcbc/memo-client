@@ -9,7 +9,7 @@ export default class Footer extends Component {
     return (
       <div className="footer">
         <h4>Memo</h4>
-        <p>Made with (╯°□°）╯︵ ┻━┻ in Orlando, FL. 🌴</p>
+        <p>Made with (╯°□°）╯︵ ┻━┻ in Orlando, FL. <span role="img" aria-label="Palm Tree">🌴</span></p>
         <div className="icons">
         	<FaGithubSquare />
         	<FaEnvelopeSquare />

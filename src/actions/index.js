@@ -44,6 +44,31 @@ export const populateCompleted = (completed) => ({
 	completed
 });
 
+export const UPDATE_CONTENT = 'UPDATE_CONTENT';
+export const updateContent = (content, timeChange) => ({
+	type: UPDATE_CONTENT,
+	content,
+	timeChange
+});
+
+export const SAVE_USER = 'SAVE_USER';
+export const saveUser = (user) => ({
+	type: SAVE_USER,
+	user
+});
+
+export const UPDATE_COMPLETED = 'UPDATE_COMPLETED';
+export const updateCompleted = (content) => ({
+	type: UPDATE_COMPLETED,
+	content
+});
+
+export const REMOVE_COMPLETED = 'REMOVE_COMPLETED';
+export const removeCompleted = (content) => ({
+	type: REMOVE_COMPLETED,
+	content
+});
+
 export const fetchUser = (token) => dispatch => {
 	fetch(`${API_BASE_URL}/users`, {
 		method: 'GET',
@@ -64,6 +89,7 @@ export const fetchUser = (token) => dispatch => {
 		dispatch(populateTopics(countedTopics));
 		dispatch(populateSites(countedSites));
 		dispatch(populateTime(countedTime));
+		dispatch(saveUser(user));
 	})
 }
 
@@ -103,8 +129,7 @@ export const fetchCompleted = (token) => dispatch => {
 	})
 }
 
-export const submitContent = (values, token) => dispatch => {
-	console.log(values);
+export const submitContent = (values, user, token) => dispatch => {
 	fetch(`${API_BASE_URL}/users/content`, {
 		method: 'POST',
 		body: JSON.stringify(values),
@@ -119,7 +144,28 @@ export const submitContent = (values, token) => dispatch => {
 		}
 		return res.json();
 	})
-	.then(() => 'Submitted Form')
+	.then((content) => {
+		const index = user.content.findIndex((c) => {
+			return c.contentId._id === content.newContent.contentId._id;
+		});
+		if (index > -1) {
+			user.content[index] = content.newContent;
+		} else {
+			user.content.push(content.newContent);
+		}
+		let countedTopics = countTopics(user.content);
+		let countedSites = countSites(user.content);
+		let countedTime = countTime(user.content);
+		dispatch(populateTopics(countedTopics));
+		dispatch(populateSites(countedSites));
+		dispatch(populateTime(countedTime));
+		dispatch(saveUser(user));
+		if (content.newContent.completed) {
+			dispatch(updateCompleted(content.newContent));
+		} else {
+			dispatch(removeCompleted(content.newContent));
+		}
+	});
 }
 
 // AUTH ACTIONS

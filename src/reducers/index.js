@@ -1,4 +1,4 @@
-import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, POPULATE_SITES, POPULATE_TIME, POPULATE_REC, POPULATE_COMPLETED, CLEAR_AUTH, UPDATE_DISPLAYED} from '../actions';
+import {SET_AUTH_TOKEN, SET_CURRENT_USER, POPULATE_TOPICS, SAVE_USER, UPDATE_COMPLETED, REMOVE_COMPLETED, UPDATE_CONTENT, POPULATE_SITES, POPULATE_TIME, POPULATE_REC, POPULATE_COMPLETED, CLEAR_AUTH, UPDATE_DISPLAYED} from '../actions';
 
 const initialState = {
 	authToken: null,
@@ -46,6 +46,35 @@ export default function reducer(state = initialState, action) {
 		return Object.assign({}, state, {
 			completed: action.completed
 		});
+	} else if (action.type === UPDATE_CONTENT) {
+			return Object.assign({}, state, {
+				timeSpent: state.timeSpent += +action.timeChange
+			})
+	} else if (action.type === SAVE_USER) {
+			return Object.assign({}, state, {
+				user: action.user
+			})
+	} else if (action.type === UPDATE_COMPLETED) {
+		const exists = state.completed.some((content) => content.contentId._id === action.content.contentId._id);
+		if (!exists) {
+			return Object.assign({}, state, {
+				completed: [...state.completed, action.content]
+			})
+		} else {
+			return Object.assign({}, state, {
+				completed: state.completed.map((content) => {
+					if(content.contentId._id === action.content.contentId._id) {
+						return action.content;
+					} else {
+            return content;
+					}
+				})
+			})
+		}
+	} else if (action.type === REMOVE_COMPLETED) {
+		return Object.assign({}, state, {
+			completed: state.completed.filter(content => content.contentId._id !== action.content.contentId._id)
+		})
 	} else if (action.type === UPDATE_DISPLAYED) {
 		return Object.assign({}, state, {
 			contentDisplayed: state.content.filter((content) => {

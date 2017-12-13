@@ -121,4 +121,7 @@
       padding: 15px 55px;
       background: red;
       border-radius: 0;
-      color: white; }
+      outline: none; }
+      .landing .cta .cta-box .section-right button a {
+        color: white;
+        text-decoration: none; }

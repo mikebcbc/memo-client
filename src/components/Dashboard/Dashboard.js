@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import io from 'socket.io-client';
 import {fetchUser} from '../../actions';
+import {API_BASE_URL} from '../../config';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -19,7 +20,7 @@ export class Dashboard extends Component {
     }
   }
 
-  componentDidUpdate() { //This right?
+  componentDidUpdate() {
     if(this.props.loggedIn) {
       this.props.dispatch(fetchUser(this.props.authToken));
     }
@@ -30,10 +31,11 @@ export class Dashboard extends Component {
       return <Redirect to="/login" />;
     }
 
-    const socket = io.connect('http://localhost:3001', {query: `auth_token=${this.props.authToken}`});
+    // const socket = io.connect(`http://${API_BASE_URL}`, {query: `auth_token=${this.props.authToken}`});
+    const socket = io.connect(`https://secret-island-23486.herokuapp.com`, {query: `auth_token=${this.props.authToken}`});
 
-    socket.on('reloadState', () => {
-      console.log('triggered');
+    socket.on('reloadState', (content) => {
+      // console.log(content); //dispatch action to redux
       this.forceUpdate();
     });
 

@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import {loadAuthToken} from './local-storage';
-import {setAuthToken} from './actions';
+import {setAuthToken, refreshToken} from './actions';
 import thunk from 'redux-thunk';
 
 import memoReducer from './reducers';
@@ -18,6 +18,7 @@ const authToken = loadAuthToken();
 if (authToken) {
     const token = authToken;
     store.dispatch(setAuthToken(token));
+    store.dispatch(refreshToken());
 }
 
 export default store;

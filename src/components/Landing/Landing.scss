@@ -144,7 +144,11 @@
 					padding: 15px 55px;
 					background: red;
 					border-radius: 0;
-					color: white;
+					outline: none;
+					a {
+						color: white;
+						text-decoration: none;
+					}
 		    }
 			}
 		}
