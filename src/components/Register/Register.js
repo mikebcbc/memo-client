@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import "./Register.css";
 
-class Register extends Component {
+export class Register extends Component {
 
   render() {
     if(this.props.loggedIn) {

@@ -9,7 +9,7 @@ import {refreshToken} from '../../actions';
 
 import './App.css';
 
-class App extends Component {
+export class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn && !this.props.loggedIn) {
