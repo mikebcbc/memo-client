@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {FaGithubSquare, FaEnvelopeSquare} from 'react-icons/lib/fa';
+import {FaGithubSquare, FaEnvelopeSquare, FaHeart} from 'react-icons/lib/fa';
 
 import './Footer.css';
 
@@ -9,7 +9,7 @@ export default class Footer extends Component {
     return (
       <div className="footer">
         <h4>Memo</h4>
-        <p>Made with (╯°□°）╯︵ ┻━┻ in Orlando, FL. <span role="img" aria-label="Palm Tree">🌴</span></p>
+        <p>Made with <FaHeart size={12} color='#d43c67' /> in Orlando, FL. ☀️</p>
         <div className="icons">
         	<FaGithubSquare />
         	<FaEnvelopeSquare />
